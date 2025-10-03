@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego 3: Atrapa el Reciclaje</title>
+  <style>
+    body { margin:0; background:#fff; text-align:center; font-family:Arial; }
+    canvas { background:#cce7cc; display:block; margin:20px auto; border:2px solid #333; }
+    h1 { color:darkgreen; }
+  </style>
+</head>
+<body>
+  <h1>♻️ Juego 3: Atrapa el Reciclaje</h1>
+  <canvas id="gameCanvas" width="400" height="500"></canvas>
+  <p>Usa las flechas ⬅️ ➡️ para mover el contenedor</p>
+  <script>
+    const canvas=document.getElementById("gameCanvas");
+    const ctx=canvas.getContext("2d");
+    let contenedor={x:160,y:460,width:80,height:30};
+    let objetos=[];
+    let puntos=0;
+    document.addEventListener("keydown", e=>{
+      if(e.key==="ArrowLeft" && contenedor.x>0) contenedor.x-=20;
+      if(e.key==="ArrowRight" && contenedor.x<canvas.width-80) contenedor.x+=20;
+    });
+    function crearObjeto(){
+      const tipos=[{color:"green",rec:true},{color:"red",rec:false}];
+      const t=tipos[Math.floor(Math.random()*tipos.length)];
+      objetos.push({x:Math.random()*360,y:0,size:20,color:t.color,rec:t.rec});
+    }
+    function actualizar(){
+      ctx.clearRect(0,0,400,500);
+      ctx.fillStyle="blue";
+      ctx.fillRect(contenedor.x,contenedor.y,contenedor.width,contenedor.height);
+      for(let o of objetos){
+        o.y+=3;
+        ctx.fillStyle=o.color;
+        ctx.beginPath();
+        ctx.arc(o.x,o.y,o.size,0,Math.PI*2);
+        ctx.fill();
+        if(o.y+o.size>contenedor.y && o.x>contenedor.x && o.x<contenedor.x+contenedor.width){
+          if(o.rec){ puntos++; } else { puntos--; }
+          objetos.splice(objetos.indexOf(o),1);
+        }
+      }
+      ctx.fillStyle="black";
+      ctx.fillText("Puntos: "+puntos,10,20);
+    }
+    setInterval(()=>{crearObjeto();},2000);
+    setInterval(()=>{actualizar();},50);
+  </script>
+</body>
+</html>
