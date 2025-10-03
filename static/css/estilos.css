@@ -1,0 +1,129 @@
+/* --------------------------
+   Estilos globales
+-------------------------- */
+body {
+  background-image: url('../img/endek_fondo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: blue;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: justify;
+  margin: 0;
+  padding: 0;
+}
+
+/* --------------------------
+   Estructura semántica
+-------------------------- */
+header {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: rgba(240, 240, 240, 0.9);
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+aside {
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-left: 4px solid #ccc;
+  margin-top: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  font-size: 14px;
+}
+
+/* --------------------------
+   Formularios
+-------------------------- */
+form {
+  margin: 20px 0;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  padding: 5px;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* --------------------------
+   Botones
+-------------------------- */
+button {
+  margin: 10px;
+  padding: 8px 15px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* --------------------------
+   Enlaces
+-------------------------- */
+a {
+  display: inline-block;
+  margin: 10px;
+  color: blue;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px solid green;
+  padding: 5px;
+  transition: all 0.3s;
+}
+
+a:hover {
+  text-decoration: underline;
+  background-color: #e0ffe0;
+}
+
+/* --------------------------
+   Imágenes y videos
+-------------------------- */
+img,
+video {
+  margin: 20px 0;
+  max-width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+}
+
+/* --------------------------
+   Responsive (opcional)
+-------------------------- */
+/* Puedes agregar media queries aquí si quieres adaptar el diseño a celulares */
